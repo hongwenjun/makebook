@@ -117,3 +117,41 @@ SELECT DISTINCT name FROM books ORDER BY name
 ```
 
 </details>
+
+
+### 使用正则能够排序“数字文本”，能够按标题排序
+```python
+import sqlite3 , re
+
+def sort_key(s):
+    # 排序关键字匹配
+    # 匹配开头数字序号
+    if s:
+        try:
+            c = re.findall('^\d+', s)[0]
+        except:
+            c = -1
+        return int(c)
+
+def strsort(alist):
+    alist.sort(key=sort_key)
+    return alist
+
+##############################
+
+idx = chapter_number
+strsort(idx)
+
+f_name = book_list[1] + '.txt'
+f = open(f_name, 'w', encoding='utf-8')
+
+for id in range(len(idx)):
+    print(idx[id])    # 章节索引 日志
+    i = chapter_number.index(idx[id])
+    f.write( chapter_number[i] )
+    f.write( chapter_texts[i].replace(',\n,','\n') )
+    f.write("\n")
+
+f.close()
+
+```
