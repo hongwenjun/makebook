@@ -137,7 +137,7 @@ def strsort(alist):
     alist.sort(key=sort_key)
     return alist
 
-##############################
+#### 复制章节建立索引排序  ###
 
 idx = chapter_number
 strsort(idx)
@@ -154,4 +154,27 @@ for id in range(len(idx)):
 
 f.close()
 
+```
+
+### 使用join和split，删除'\x0A'分割和删除逗号分割
+```python
+
+f_name = book_name + '.txt'
+f = open(f_name, 'w', encoding='utf-8')
+
+###############     把数据输出到电子书文件   ##############
+f.write('《' + book_name + '》\n\n')
+text = []
+for id in range(len(idx)):
+    print(idx[id])    # 章节索引 日志
+    i = chapter_number.index(idx[id])
+    f.write( chapter_number[i] )
+    text =  chapter_texts[i].replace(',\n,','\n')  
+    text="\n".join(text.split())
+    f.write( text[1:-1] )
+    f.write("\n")
+
+# print( text[1:-1] )
+
+f.close()
 ```
