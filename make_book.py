@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-import sqlite3 , re
+import sqlite3 , re , copy
 
 def sort_key(s):
     # 排序关键字匹配
@@ -14,6 +14,15 @@ def sort_key(s):
 def strsort(alist):
     alist.sort(key=sort_key)
     return alist
+
+def chapter_style(s) :
+    if s:
+        try:
+            if re.findall('^\d+\.', s)[0] :
+                c = s.split('.')[1]
+        except:
+            c = s
+    return c
 
 ###############         连接数据文件    ##############
 conn = sqlite3.connect('books.db')
@@ -60,23 +69,28 @@ while r != None :
 c.close()
 
 ###############     复制章节建立索引排序   ##############
-idx = chapter_number
+idx = []
+idx = copy.copy(chapter_number)
 strsort(idx)
 
 f_name = book_name + '.txt'
 f = open(f_name, 'w', encoding='utf-8')
 
 ###############     把数据输出到电子书文件   ##############
+
 f.write('《' + book_name + '》\n\n')
 text = []
 for id in range(len(idx)):
     print(idx[id])    # 章节索引 日志
     i = chapter_number.index(idx[id])
-    f.write( chapter_number[i] )
+    title = chapter_style(chapter_number[i]) 
+    f.write( title + '\n')
+    
     text =  chapter_texts[i].replace(',\n,','\n')  
+    text = text.replace( title , "")
     text="\n".join(text.split())
     f.write( text[1:-1] )
-    f.write("\n")
+    f.write("\n\n")
 
 # print( text[1:-1] )
 

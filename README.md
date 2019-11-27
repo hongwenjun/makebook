@@ -156,7 +156,7 @@ f.close()
 
 ```
 
-### 使用join和split，删除'\x0A'分割和删除逗号分割
+### 使用join和split，删除'\xA0'分割和删除逗号分割
 ```python
 
 f_name = book_name + '.txt'
