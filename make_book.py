@@ -24,13 +24,16 @@ select_cmd = " SELECT DISTINCT name FROM books ORDER BY name "
 book_list = []
 
 for row in c.execute(select_cmd):
-    # print(row)
+    print(row)
     book_list.append(*row)
 
-print('《' + book_list[1] + '》')
+print('输入一个数字索引，选择书名')
+n = int(input())
 
-book_name = book_list[1]
-select_cmd = "SELECT chapter_content, chapter_name FROM books WHERE name = '" + book_name + "' ORDER BY  chapter_name"  #  "LIMIT 50"
+book_name = book_list[n]
+print('《' + book_name + '》')
+
+select_cmd = "SELECT chapter_content, chapter_name FROM books WHERE name = '" + book_name + "' ORDER BY  chapter_name"  #  " LIMIT 50"
 
 # c.execute(select_cmd)
 # r = c.fetchone()
@@ -56,8 +59,11 @@ c.close()
 idx = chapter_number
 strsort(idx)
 
-f_name = book_list[1] + '.txt'
+f_name = book_name + '.txt'
 f = open(f_name, 'w', encoding='utf-8')
+
+###    把数据输出到电子书文件
+f.write('《' + book_name + '》\n\n')
 
 for id in range(len(idx)):
     print(idx[id])    # 章节索引 日志
