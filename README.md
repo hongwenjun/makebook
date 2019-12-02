@@ -1,6 +1,11 @@
 # makebook
 自己整理电子书，Python Sqlite 学习代码笔记历史
 
+
+### Scrapy 官方中文文档
+- Scrapy是一个为了爬取网站数据，提取结构性数据而编写的应用框架。 可以应用在包括数据挖掘，信息处理或存储历史数据等一系列的程序中。
+- https://scrapy-chs.readthedocs.io/zh_CN/1.0/intro/overview.html
+
 ---
 ### :heart_eyes:  SQLite导入CSV数据.txt
 <details>
