@@ -6,6 +6,50 @@
 - Scrapy是一个为了爬取网站数据，提取结构性数据而编写的应用框架。 可以应用在包括数据挖掘，信息处理或存储历史数据等一系列的程序中。
 - https://scrapy-chs.readthedocs.io/zh_CN/1.0/intro/overview.html
 
+## Window 7 x64 安装Scrapy
+
+### 1.安装Anaconda，解决依赖库的问题
+- https://docs.anaconda.com/anaconda/install/windows/
+- 下载 Anaconda3-2019.10-Windows-x86_64.exe ，参考文档安装
+
+### 2.开启 Anaconda Prompt (Anaconda3)环境，安装scrapy
+```
+conda install -c conda-forge scrapy
+```
+
+### 3.解决相关运行环境变量的错误问题
+- 错误信息: Fatal error in launcher: Unable to create process using '"D:\bld\scrapy_1572360424769\_h_env\python.exe"  "D:\Anaconda3\Scripts\scrapy.exe" '
+```
+# 建立目录
+$ mkdir -p /d//bld/scrapy_1572360424769/
+
+# 链接目录
+(base) D:\>mklink /D D:\bld\scrapy_1572360424769\_h_env D:\Anaconda3
+```
+### 4.正确运行
+```
+(base) D:\>scrapy -v
+Scrapy 1.8.0 - no active project
+
+Usage:
+  scrapy <command> [options] [args]
+
+Available commands:
+  bench         Run quick benchmark test
+  fetch         Fetch a URL using the Scrapy downloader
+  genspider     Generate new spider using pre-defined templates
+  runspider     Run a self-contained spider (without creating a project)
+  settings      Get settings values
+  shell         Interactive scraping console
+  startproject  Create new project
+  version       Print Scrapy version
+  view          Open URL in browser, as seen by Scrapy
+
+  [ more ]      More commands available when run from project directory
+
+Use "scrapy <command> -h" to see more info about a command
+```
+
 ---
 ### :heart_eyes:  SQLite导入CSV数据.txt
 <details>
