@@ -18,6 +18,8 @@ conda install -c conda-forge scrapy
 ```
 
 ### 3.解决相关运行环境变量的错误问题
+- 安装的时候勾选第一个环境变量，就不会有错误信息
+----
 - 错误信息: Fatal error in launcher: Unable to create process using '"D:\bld\scrapy_1572360424769\_h_env\python.exe"  "D:\Anaconda3\Scripts\scrapy.exe" '
 ```
 # 建立目录
