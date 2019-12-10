@@ -6,7 +6,7 @@
 - Scrapy是一个为了爬取网站数据，提取结构性数据而编写的应用框架。 可以应用在包括数据挖掘，信息处理或存储历史数据等一系列的程序中。
 - https://scrapy-chs.readthedocs.io/zh_CN/1.0/intro/overview.html
 
-(![](https://raw.githubusercontent.com/hongwenjun/img/master/Scrapy.jpg))[https://youtu.be/6S5X4CsHtuA]
+[![](https://raw.githubusercontent.com/hongwenjun/img/master/Scrapy.jpg)](https://youtu.be/6S5X4CsHtuA)
 
 ## Window 7 x64 安装Scrapy
 
